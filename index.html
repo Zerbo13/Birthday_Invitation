@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sei Invitato! 🎉</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+    <div class="confetti-wrap" id="confetti"></div>
+
+    <div class="card">
+      <span class="badge">✦ Sei invitato ✦</span>
+      <span class="emoji-big">🎂</span>
+
+      <h1>
+        Il 50° compleanno<br />di <span id="nome-festeggiato">Katiuscia</span>!
+      </h1>
+      <p class="subtitle">Una serata indimenticabile e imperdibile</p>
+
+      <div class="countdown" id="countdown">
+        <div class="count-box">
+          <span class="count-num" id="cd-g">00</span>
+          <div class="count-lbl">Giorni</div>
+        </div>
+        <div class="count-box">
+          <span class="count-num" id="cd-h">00</span>
+          <div class="count-lbl">Ore</div>
+        </div>
+        <div class="count-box">
+          <span class="count-num" id="cd-m">00</span>
+          <div class="count-lbl">Minuti</div>
+        </div>
+        <div class="count-box">
+          <span class="count-num" id="cd-s">00</span>
+          <div class="count-lbl">Secondi</div>
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="detail-row">
+          <div class="detail-icon">📅</div>
+          <div>
+            <div class="detail-label">Quando</div>
+            <div class="detail-value" id="data-festa">
+              Sabato 9 Maggio 2026, ore 20:00
+            </div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">📍</div>
+          <div>
+            <div class="detail-label">Dove</div>
+            <div class="detail-value" id="luogo-festa">Via Roma 15, Milano</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-icon">👗</div>
+          <div>
+            <div class="detail-label">Dress code</div>
+            <div class="detail-value" id="dress-code">Smart casual</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div id="rsvp-section">
+        <p class="rsvp-title">Conferma la tua presenza 🎟️</p>
+        <div class="form">
+          <div class="row2">
+            <div class="field">
+              <label>Nome</label>
+              <input type="text" id="inp-nome" placeholder="Il tuo nome" />
+            </div>
+            <div class="field">
+              <label>Cognome</label>
+              <input
+                type="text"
+                id="inp-cognome"
+                placeholder="Il tuo cognome"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label>Partecipi?</label>
+            <select id="inp-rsvp">
+              <option value="">— scegli —</option>
+              <option value="si">✅ Sì, ci sarò!</option>
+              <option value="forse">🤔 Forse. Farò sapere</option>
+              <option value="no">❌ Non posso venire</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Quante persone? (includi te)</label>
+            <select id="inp-num">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="4">5</option>
+              <option value="4">6</option>
+              <option value="4">7</option>
+              <option value="4">8</option>
+              <option value="4">9</option>
+              <option value="4">10</option>
+            </select>
+          </div>
+          <button class="btn" onclick="inviaRSVP()">Conferma ✦</button>
+        </div>
+      </div>
+
+      <div class="success" id="success-msg">
+        <div class="big">🎉</div>
+        <h2>Perfetto!</h2>
+        <p id="success-text">
+          Non vediamo l'ora di vederti! Ti meriti un prosecco! 😉
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
