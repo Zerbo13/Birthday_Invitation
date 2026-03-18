@@ -2,8 +2,9 @@ const CONFIG = {
   nomeFesteggiato: "Katiuscia",
   dataFesta: "2026-05-09T20:00:00",
   dataLabel: "Sabato 9 Maggio 2026, ore 20:00",
-  luogo: "Ristorante la Collina,  Via Colle del Tesoro, 5/A, 00038 Valmontone RM",
+  luogo: "Ristorante la Collina, Via Colle del Tesoro, 5/A, 00038 Valmontone RM",
   dressCode: "Smart casual",
+  sheetsURL: "https://script.google.com/macros/s/AKfycbz-Ugt-hYJEaFd_ixcFLEG4pHDOY7B3GoX9Gi5x8BhRzl2SoWHoaZQtTVBcAEzJnr2YTw/exec",
 };
 
 document.getElementById('nome-festeggiato').textContent = CONFIG.nomeFesteggiato;
@@ -29,18 +30,39 @@ aggiornaCountdown();
 setInterval(aggiornaCountdown, 1000);
 
 // RSVP
-function inviaRSVP() {
-  const nome = document.getElementById('inp-nome').value.trim();
-  const rsvp = document.getElementById('inp-rsvp').value;
-  if (!nome || !rsvp) { alert('Inserisci il tuo nome e la tua risposta!'); return; }
+async function inviaRSVP() {
+  const nome    = document.getElementById('inp-nome').value.trim();
+  const cognome = document.getElementById('inp-cognome').value.trim();
+  const rsvp    = document.getElementById('inp-rsvp').value;
+  const num     = document.getElementById('inp-num').value;
+
+  if (!nome || !rsvp) {
+    alert('Inserisci il tuo nome e la tua risposta!');
+    return;
+  }
+
+  const btn = document.querySelector('.btn');
+  btn.textContent = 'Invio in corso...';
+  btn.disabled = true;
+
+  try {
+    await fetch(CONFIG.sheetsURL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nome, cognome, rsvp, num })
+    });
+  } catch (err) {
+    console.error('Errore invio:', err);
+  }
+
   const msg = {
-    si:    `Non vediamo l'ora di vederti, ${nome} 🥳!  Ti meriti un prosecco! 😉`,
+    si:    `Non vediamo l'ora di vederti, ${nome}! 🥳 Ti meriti un prosecco! 😉`,
     forse: `Capito! Facci sapere presto, ${nome} 😊`,
     no:    `Peccato, ${nome}! Ti mancherà una serata fantastica 😢`
   };
   document.getElementById('rsvp-section').style.display = 'none';
-  const s = document.getElementById('success-msg');
-  s.style.display = 'flex';
+  document.getElementById('success-msg').style.display = 'flex';
   document.getElementById('success-text').textContent = msg[rsvp];
   lanciaConfetti();
 }
