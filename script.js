@@ -64,7 +64,6 @@ async function inviaRSVP() {
 
   const msg = {
     si:    `Non vediamo l'ora di vederti, ${nome}! 🥳 Ti meriti un prosecco! 😉`,
-    forse: `Capito! Facci sapere presto, ${nome} 😊`,
     no:    `Peccato, ${nome}! Ti mancherà una serata fantastica 😢`
   };
   document.getElementById('rsvp-section').style.display = 'none';
