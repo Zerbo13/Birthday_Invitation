@@ -4,7 +4,7 @@ const CONFIG = {
   dataLabel: "Sabato 9 Maggio 2026, ore 20:00",
   luogo: "Ristorante la Collina, Via Colle del Tesoro, 5/A, 00038 Valmontone RM",
   dressCode: "Smart casual",
-  sheetsURL: "https://script.google.com/macros/s/AKfycbz-Ugt-hYJEaFd_ixcFLEG4pHDOY7B3GoX9Gi5x8BhRzl2SoWHoaZQtTVBcAEzJnr2YTw/exec",
+  sheetsURL: "https://script.google.com/macros/s/AKfycbzM0e--FoenNWteQyWRD19R4jYapuLUGxxsDGJqr1wO4JJU5N6B1QQXvtb2YzdbYcH9_w/exec",
 };
 
 document.getElementById('nome-festeggiato').textContent = CONFIG.nomeFesteggiato;
