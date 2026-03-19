@@ -328,3 +328,23 @@ h1 span {
     grid-template-columns: 1fr;
   }
 }
+
+textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+textarea:focus {
+  border-color: var(--accent);
+  background: rgba(247, 201, 72, 0.06);
+}

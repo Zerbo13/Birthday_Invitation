@@ -29,12 +29,18 @@ function aggiornaCountdown() {
 aggiornaCountdown();
 setInterval(aggiornaCountdown, 1000);
 
+// Mostra/nascondi campo nomi
+document.getElementById('inp-num').addEventListener('change', function() {
+  document.getElementById('field-nomi').style.display = this.value > 1 ? 'block' : 'none';
+});
+
 // RSVP
 async function inviaRSVP() {
   const nome    = document.getElementById('inp-nome').value.trim();
   const cognome = document.getElementById('inp-cognome').value.trim();
   const rsvp    = document.getElementById('inp-rsvp').value;
   const num     = document.getElementById('inp-num').value;
+  const nomi    = document.getElementById('inp-nomi').value.trim();
 
   if (!nome || !rsvp) {
     alert('Inserisci il tuo nome e la tua risposta!');
@@ -50,7 +56,7 @@ async function inviaRSVP() {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome, cognome, rsvp, num })
+      body: JSON.stringify({ nome, cognome, rsvp, num, nomi })
     });
   } catch (err) {
     console.error('Errore invio:', err);
